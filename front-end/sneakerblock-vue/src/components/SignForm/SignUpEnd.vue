@@ -7,18 +7,23 @@
     </v-col>
     <v-col cols="12">
       <v-card max-width="400" class="mx-auto text-center mt-12" flat>
-        <h1>가입을 축하드립니다~~~!!!</h1>
+        <h2>{{ signUpName }}님의 가입을 축하드립니다!!!</h2>
       </v-card>
     </v-col>
   </v-row>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data() {
     return {
       //
     }
+  },
+  computed: {
+    ...mapState(['userName', 'signUpName']),
   },
 }
 </script>

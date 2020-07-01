@@ -1,9 +1,6 @@
 <template>
   <div>
     <HelloWorld />
-    <span>{{ this.logInName }}님 로그인을 환영합니다.</span><br />
-    <button @click="getBalance()">잔액확인</button>
-    {{ this.balance }}
     <v-container>
       <productAllList />
     </v-container>

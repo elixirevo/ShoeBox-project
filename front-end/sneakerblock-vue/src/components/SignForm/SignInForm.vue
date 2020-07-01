@@ -2,12 +2,12 @@
   <v-row>
     <v-col cols="12">
       <v-card max-width="400" class="mx-auto" flat>
-        <v-alert type="info">
+        <v-alert type="info" :value="!isError">
           이메일과 비밀번호를 입력 해주세요.
         </v-alert>
-        <!-- <v-alert type="warning">
+        <v-alert type="warning" :value="isError">
           이메일 혹은 비밀번호가 틀립니다.
-        </v-alert> -->
+        </v-alert>
       </v-card>
     </v-col>
     <v-col>
@@ -26,12 +26,11 @@
             :type="show ? 'text' : 'password'"
             label="Password"
             hint="At least 8 characters"
-            value=""
             required
             @click:append="show = !show"
           ></v-text-field>
           <br />
-          <v-btn :disabled="!valid" color="teal white--text" @click="testlogin">
+          <v-btn :disabled="!valid" color="teal white--text" @click="signIn">
             로그인
           </v-btn>
         </v-form>
@@ -41,8 +40,9 @@
 </template>
 
 <script>
-import { GET_USER_QUERY } from '@/constants/graphql'
-import { mapState } from 'vuex'
+import SIGNIN from '@/graphql/signin.gql'
+import { mapState, mapMutations } from 'vuex'
+
 export default {
   data() {
     return {
@@ -59,40 +59,61 @@ export default {
       account: null,
       PubKey: null,
       nexttwo: null,
+      isError: false,
     }
   },
   computed: {
-    ...mapState(['vxPubKey', 'logInName', 'logInAddress']),
+    ...mapState(['isLogin']),
   },
   methods: {
+    ...mapMutations(['tokenSave']),
     onDone() {
       this.alertvalue = true
     },
-    testlogin() {
-      console.log(this.email, this.password, this.name)
-    },
-    login() {
+    signIn() {
       this.$apollo
         .mutate({
-          mutation: GET_USER_QUERY,
+          mutation: SIGNIN,
           variables: {
             email: this.email,
             password: this.password,
           },
         })
         .then(result => {
-          // const id = result.data.login._id
-          this.$store.state.vxPubKey = result.data.login.pubKey
-          this.$store.state.logInName = result.data.login.name
-          this.$store.state.logInAddress = result.data.login.address
-
-          alert('login Success')
-          this.$router.push({ path: '/' })
+          console.log(result.data.signIn.token)
+          this.$store.state.accessToken = result.data.signIn.token
+          this.$store.state.isLogin = true
+          this.tokenSave()
+          this.$router.push({ name: 'Home' })
         })
-        .catch(error => {
-          alert(error)
+        .catch(() => {
+          console.log('에러입니다')
+          // console.log(error)
+          this.isError = true
         })
     },
+    // login() {
+    //   this.$apollo
+    //     .mutate({
+    //       mutation: GET_USER_QUERY,
+    //       variables: {
+    //         email: this.email,
+    //         password: this.password,
+    //       },
+    //     })
+    //     .then(result => {
+    //       // const id = result.data.login._id
+    //       this.$store.state.vxPubKey = result.data.login.pubKey
+    //       this.$store.state.logInName = result.data.login.name
+    //       this.$store.state.logInAddress = result.data.login.address
+
+    //       alert('login Success')
+    //       this.$router.push({ path: '/' })
+    //     })
+    //     .catch(error => {
+    //       alert(error)
+    //     })
+    // },
   },
 }
 </script>

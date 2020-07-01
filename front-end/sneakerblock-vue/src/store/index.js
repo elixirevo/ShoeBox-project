@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import wallet from '@/store/modules/wallet'
+// import wallet from '@/store/modules/wallet'
+import { caver } from '@/klaytn/caver'
 
 Vue.use(Vuex)
 
@@ -9,13 +10,16 @@ export default new Vuex.Store({
   state: {
     signUpcount: 0,
     signupBarPC: 33,
+    accessToken: null,
+    signUpName: '',
+    isLogin: false,
 
-    vxemail: '',
-    vxpw: '',
-    vxname: '',
-    vxPubKey: '',
-    logInName: '',
-    logInAddress: '',
+    userEmail: '',
+    userPassword: '',
+    userName: '',
+    userHomeAddress: '',
+    userKlayAddress: '',
+    userKlayPrivateKey: '',
   },
   getters: {
     //
@@ -36,16 +40,42 @@ export default new Vuex.Store({
     join: state => {
       state.signUpcount = 2
       state.signupBarPC = 100
+      state.userEmail = ''
+      state.userPassword = ''
+      state.userName = ''
+      state.userHomeAddress = ''
+      state.userKlayAddress = ''
+      state.userKlayPrivateKey = ''
     },
     toSignin: state => {
       state.signUpcount = 0
       state.signupBarPC = 33
+      state.signUpName = null
+    },
+    async createAccount(state) {
+      const acc = await caver.klay.accounts.create()
+      state.userKlayAddress = acc.address
+      state.userKlayPrivateKey = acc.privateKey
+    },
+    signOut: state => {
+      state.isLogin = false
+      state.accessToken = null
+      localStorage.removeItem('access-token')
+    },
+    tokenSave: state => {
+      localStorage.setItem('access-token', state.accessToken)
+    },
+    getStorageToken: state => {
+      state.accessToken = localStorage.getItem('access-token')
+      if (state.accessToken !== null) state.isLogin = true
     },
   },
   actions: {
-    //
+    tokenSearch({ commit }) {
+      commit('getStorageToken')
+    },
   },
   modules: {
-    wallet,
+    // wallet,
   },
 })

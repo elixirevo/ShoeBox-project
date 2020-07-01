@@ -3,7 +3,7 @@
     <v-col cols="12">
       <v-card max-width="400" class="mx-auto mt-3" flat>
         <v-row justify="end" v-if="signUpcount == 0">
-          <v-btn :disabled="!valid" color="primary" class="mx-3" @click="next()">
+          <v-btn :disabled="!valid" color="primary" class="mx-3" @click="toCreateWallet()">
             next
           </v-btn>
         </v-row>
@@ -11,14 +11,11 @@
           <v-btn color="teal white--text" class="mx-3" @click="before()">
             BEFORE
           </v-btn>
-          <v-btn :disabled="!valid" color="primary" class="mx-3" @click="createAccount()">
-            generate
-          </v-btn>
-          <v-btn :disabled="!valid" color="primary" class="mx-3" @click="join()">
+          <v-btn :disabled="!valid" color="primary" class="mx-3" @click="signUpComplete()">
             JOIN
           </v-btn>
         </v-row>
-        <v-row justify="end" v-if="btn == 2">
+        <v-row justify="end" v-if="signUpcount == 2">
           <v-btn :disabled="!valid" color="primary" class="mx-3" @click="toSignin()" router :to="{ name: 'SignIn' }">
             Sign In
           </v-btn>
@@ -32,7 +29,7 @@
 // import { caver } from '@/klaytn/caver'
 import { mapState, mapMutations } from 'vuex'
 
-import { CREATE_USER_MUTATION } from '@/constants/graphql'
+import SIGNUP from '@/graphql/signup.gql'
 //import gql from 'graphql-tag'
 
 export default {
@@ -43,24 +40,49 @@ export default {
     }
   },
   computed: {
-    ...mapState(['signUpcount', 'vxemail', 'vxpw', 'vxname']),
-    ...mapState('wallet', ['createAC']),
+    ...mapState(['userEmail', 'userPassword', 'userName', 'userHomeAddress', 'userKlayAddress', 'userKlayPrivateKey', 'signUpcount', 'signUpName']),
   },
   methods: {
-    ...mapMutations(['next', 'before', 'join', 'toSignin']),
-    ...mapMutations('wallet', ['createAccount']),
-    toSignin() {
-      console.log('clicked')
-      this.$apollo.mutate({
-        mutation: CREATE_USER_MUTATION,
-        variables: {
-          // email: this.vxemail,
-          // password: this.vxpw,
-          // name: this.vxname,
-          address: this.createAC.address,
-          pubkey: this.createAC.privateKey,
-        },
-      })
+    ...mapMutations(['next', 'before', 'join', 'toSignin', 'createAccount']),
+    // toSignin() {
+    //   this.$apollo.mutate({
+    //     mutation: CREATE_USER_MUTATION,
+    //     variables: {
+    //       address: this.createAC.address,
+    //       pubkey: this.createAC.privateKey,
+    //     },
+    //   })
+    // },
+    signUpComplete() {
+      // console.log([this.userEmail, this.userPassword, this.userName, this.userHomeAddress, this.userKlayAddress, this.userKlayPrivateKey])
+      this.$apollo
+        .mutate({
+          mutation: SIGNUP,
+          variables: {
+            email: this.userEmail,
+            password: this.userPassword,
+            name: this.userName,
+            homeAddress: this.userHomeAddress,
+            klayAddress: this.userKlayAddress,
+            klayPrivateKey: this.userKlayPrivateKey,
+          },
+          // update: (a, { data: { b } }) => {
+          //   console.log(a)
+          //   console.log(b)
+          //   return b
+          // },
+        })
+        .then(result => {
+          // console.log(result)
+          // console.log(result.data.signUp)
+          // console.log(result.data.signUp.name)
+          this.$store.state.signUpName = result.data.signUp.name
+        })
+      this.join()
+    },
+    toCreateWallet() {
+      this.next()
+      this.createAccount()
     },
   },
 }
