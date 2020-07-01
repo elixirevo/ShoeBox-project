@@ -15,14 +15,17 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  address: {
+  homeAddress: {
     type: String
   },
-  pubKey: {
+  klayAddress: {
     type: String
   },
-  lovely: {
-    type: String,
+  klayPrivateKey: {
+    type: String
+  },
+  likeProducts: {
+    type: Array,
     required: false
   }
 })

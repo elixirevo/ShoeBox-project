@@ -14,17 +14,39 @@ type Mutation {
   createProduct(input: ProductInput): Product
   updateProduct(_id: ID!, input: Productupdate): Product
   deleteProduct(_id: ID!): Product
-  login(email : String! , password : String!) : User
+  login(email: String! , password: String!) : AuthPayload
+  signIn(input: SignIn): AuthPayload
+  signUp(input: SignUp): User
+}
+
+type AuthPayload {
+  user: User
+  token: String
 }
 
 type User {
-  _id: ID!
+  _id: ID
+  email: String
+  password: String
+  name: String
+  homeAddress: String
+  klayAddress: String
+  klayPrivateKey: String
+  likeProducts: [String]
+}
+
+input SignIn {
+  email: String!
+  password: String!
+}
+
+input SignUp {
   email: String!
   password: String!
   name: String!
-  address: String!
-  pubKey: String!
-  lovely: String
+  homeAddress: String!
+  klayAddress: String!
+  klayPrivateKey: String!
 }
 
 input UserInput {
@@ -33,14 +55,14 @@ input UserInput {
   name: String!
   address: String
   pubKey: String
-  lovely: String
+  like: String
 }
 
 
 input Userupdate {
   email: String!
   password: String!
-  lovely: String
+  like: String
 }
 
 type Product {
@@ -54,7 +76,7 @@ type Product {
   date: String
   validator: String
   manufac: String
-  lovely: Int
+  like: Int
 }
 
 input ProductInput {
@@ -75,6 +97,6 @@ input Productupdate {
   description: String
   validator: String
   manufac: String
-  lovely: Int
+  like: Int
   }
 

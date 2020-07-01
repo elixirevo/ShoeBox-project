@@ -1,7 +1,10 @@
 //var User = require('../sneakers/User');
 import Product from '../sneakers/Product'
 import User from '../sneakers/User'
+import jwt from 'jsonwebtoken'
+import bcrypt from 'bcrypt'
 
+const ACCESS_TOKEN_SECRET = 'asdasdasd'
 
 const resolvers = {
   Query: {
@@ -9,7 +12,7 @@ const resolvers = {
       return 'hello apollo-server-express!!!'
     },
     async emailVerify(root, { email }) {
-      if (await User.findOne({ email }) === null) {
+      if ((await User.findOne({ email })) === null) {
         return true
       } else {
         return false
@@ -18,6 +21,8 @@ const resolvers = {
       // return await User.findOne({ email })
     },
     async allUsers() {
+      const a = await User.find({ email: 'khjeon5328@naver.com' })
+      console.log(a)
       return await User.find()
     },
     async getUser(root, { _id }) {
@@ -26,11 +31,32 @@ const resolvers = {
     async allProduct() {
       return await Product.find()
     },
-    async getProduct(){
+    async getProduct() {
       return await Product.findById(_id)
     },
   },
   Mutation: {
+    async signUp(root, { input }) {
+      return await User.create(input)
+    },
+    async signIn(root, { input }) {
+      // console.log(input)
+      // const email = input.email
+      const userinter = await User.findOne({ email: input.email, password: input.password })
+      // const token = jwt.sign({ email }, ACCESS_TOKEN_SECRET)
+      const userObj = userinter.toObject()
+      const tokenInfo = { _id: userObj._id, email: userObj.email, name: userObj.name, homeAddress: userObj.homeAddress, klayAddress: userObj.klayAddress }
+      const token = jwt.sign(tokenInfo, ACCESS_TOKEN_SECRET)
+      // let correctUser = {}
+      // const userinter = await User.find({"email": input.email})
+      // userinter.toObject()
+      // console.log(userinter)
+      if (userinter !== null) {
+        return { token }
+      } else {
+        return null
+      }
+    },
     async createUser(root, { input }) {
       return await User.create(input)
     },
@@ -49,22 +75,21 @@ const resolvers = {
     async deleteProduct(root, { _id }) {
       return await Product.findOneAndDelete({ _id })
     },
-    async login(_, { email, password }){
+    async login(_, { email, password }) {
       console.log(email)
       console.log(password)
-      var correctUser ={}
-      await User.find({}, (err, users)=>{
-        users.forEach((user)=>{
-          if(user.email===email && user.password===password){
+      var correctUser = {}
+      await User.find({}, (err, users) => {
+        users.forEach((user) => {
+          if (user.email === email && user.password === password) {
             correctUser = user
-          }else{
+          } else {
             correctUser = 'null'
           }
         })
-      });
+      })
       // console.log(correctUser)
       return correctUser
-
     },
   },
 }

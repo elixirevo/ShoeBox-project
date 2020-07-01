@@ -2,6 +2,30 @@
   <v-app>
     <v-navigation-drawer v-model="drawer" app right disable-resize-watcher temporary>
       <v-list dense>
+        <v-list-item v-if="this.isLogin === false">
+          <h2>로그인을 해주세요</h2>
+        </v-list-item>
+
+        <v-list-item v-if="this.isLogin === false" two-line>
+          <v-btn class="ma-3" color="success" router :to="{ name: 'SignIn' }">Sign In</v-btn>
+          <v-btn class="ma-2" color="primary" router :to="{ name: 'SignUp' }">Sign Up</v-btn>
+        </v-list-item>
+
+        <v-list-item v-if="this.isLogin === true">
+          <v-container>
+            <v-row>
+              <v-col cols="12">
+                <h2>유저정보</h2>
+              </v-col>
+              <v-col cols="12">
+                <h4>이름: 테스트</h4>
+                <h4>이메일: test@test.com</h4>
+                <h4>잔액: 05435 XKRW</h4>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-list-item>
+
         <v-list-item router :to="{ name: 'Home' }" exact>
           <v-list-item-action>
             <v-icon>mdi-home</v-icon>
@@ -29,7 +53,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item router :to="{ name: 'ProductEnroll' }" exact>
+        <v-list-item v-if="this.isLogin === true" router :to="{ name: 'ProductEnroll' }" exact>
           <v-list-item-action>
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
@@ -38,7 +62,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item router :to="{ name: 'UserPage' }" exact>
+        <v-list-item v-if="this.isLogin === true" router :to="{ name: 'UserPage' }" exact>
           <v-list-item-action>
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
@@ -47,7 +71,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item router :to="{ name: 'Favorites' }" exact>
+        <v-list-item v-if="this.isLogin === true" router :to="{ name: 'Favorites' }" exact>
           <v-list-item-action>
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
@@ -56,7 +80,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item router :to="{ name: 'UserWallet' }" exact>
+        <v-list-item v-if="this.isLogin === true" router :to="{ name: 'UserWallet' }" exact>
           <v-list-item-action>
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
@@ -65,21 +89,12 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item router :to="{ name: 'SignUp' }" exact>
+        <v-list-item v-if="this.isLogin === true" @click="byebye">
           <v-list-item-action>
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Sign Up</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item router :to="{ name: 'SignIn' }" exact>
-          <v-list-item-action>
-            <v-icon>mdi-home</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Sign In</v-list-item-title>
+            <v-list-item-title>Sign Out</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -94,16 +109,17 @@
       <v-spacer></v-spacer>
       <div v-if="window.width >= 1000">
         <span @click="$router.push({ name: 'TestPage' })" style="cursor:pointer" class="mx-2">TestPage</span>
-        <span @click="$router.push({ name: 'AdminPage' })" style="cursor:pointer" class="mx-2">AdminPage</span>
+        <span v-if="this.isLogin === true" @click="$router.push({ name: 'AdminPage' })" style="cursor:pointer" class="mx-2">AdminPage</span>
         <span @click="$router.push({ name: 'Home' })" style="cursor:pointer" class="mx-2">Home</span>
         <span @click="$router.push({ name: 'Search' })" style="cursor:pointer" class="mx-2">Search</span>
         <span @click="$router.push({ name: 'Product' })" style="cursor:pointer" class="mx-2">Sneakers</span>
-        <span @click="$router.push({ name: 'ProductEnroll' })" style="cursor:pointer" class="mx-2">Enroll</span>
-        <span @click="$router.push({ name: 'UserPage' })" style="cursor:pointer" class="mx-2">My Page</span>
-        <span @click="$router.push({ name: 'Favorites' })" style="cursor:pointer" class="mx-2">Favorites</span>
-        <span @click="$router.push({ name: 'UserWallet' })" style="cursor:pointer" class="mx-2">Wallet</span>
-        <span @click="$router.push({ name: 'SignUp' })" style="cursor:pointer" class="mx-2">Sign Up</span>
-        <span @click="$router.push({ name: 'SignIn' })" style="cursor:pointer" class="mx-2">Sign In</span>
+        <span v-if="this.isLogin === true" @click="$router.push({ name: 'ProductEnroll' })" style="cursor:pointer" class="mx-2">Enroll</span>
+        <span v-if="this.isLogin === true" @click="$router.push({ name: 'UserPage' })" style="cursor:pointer" class="mx-2">My Page</span>
+        <span v-if="this.isLogin === true" @click="$router.push({ name: 'Favorites' })" style="cursor:pointer" class="mx-2">Favorites</span>
+        <span v-if="this.isLogin === true" @click="$router.push({ name: 'UserWallet' })" style="cursor:pointer" class="mx-2">Wallet</span>
+        <span v-if="this.isLogin === false" @click="$router.push({ name: 'SignUp' })" style="cursor:pointer" class="mx-2">Sign Up</span>
+        <span v-if="this.isLogin === false" @click="$router.push({ name: 'SignIn' })" style="cursor:pointer" class="mx-2">Sign In</span>
+        <span v-if="this.isLogin === true" @click="byebye" style="cursor:pointer" class="mx-2">Sign Out</span>
       </div>
       <v-app-bar-nav-icon v-else @click.stop="drawer = !drawer" />
     </v-app-bar>
@@ -129,6 +145,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'App',
 
@@ -145,6 +162,9 @@ export default {
       },
     }
   },
+  computed: {
+    ...mapState(['isLogin']),
+  },
   created() {
     window.addEventListener('resize', this.handleResize)
     this.handleResize()
@@ -153,9 +173,14 @@ export default {
     window.removeEventListener('resize', this.handleResize)
   },
   methods: {
+    ...mapMutations(['signOut', 'getStorageToken']),
     handleResize() {
       this.window.width = window.innerWidth
       this.window.height = window.innerHeight
+    },
+    byebye() {
+      this.signOut()
+      this.$router.push({ name: 'Home' })
     },
   },
 }
