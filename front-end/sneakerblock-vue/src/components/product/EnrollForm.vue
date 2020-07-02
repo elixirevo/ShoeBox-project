@@ -10,7 +10,7 @@
             <v-col cols="12">
               <v-row justify="center" class="mx-1 mt-12 mb-6">
                 <v-card class="max-auto" flat>
-                  <v-img src="https://picsum.photos/300/300?random"></v-img>
+                  <v-img src="https://dummyimage.com/300x300.jpg?text=input%20image"></v-img>
                 </v-card>
               </v-row>
             </v-col>

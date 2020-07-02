@@ -17,7 +17,6 @@ const resolvers = {
       } else {
         return false
       }
-
       // return await User.findOne({ email })
     },
     async allUsers() {
@@ -34,8 +33,14 @@ const resolvers = {
     async getProduct() {
       return await Product.findById(_id)
     },
+    async itemDetail(root, {tokenID}) {
+      return await Product.findOne({tokenID: tokenID})
+    }
   },
   Mutation: {
+    async productEnroll(root, { input }) {
+      return await Product.create(input)
+    },
     async signUp(root, { input }) {
       return await User.create(input)
     },

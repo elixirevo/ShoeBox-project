@@ -17,23 +17,32 @@ const ProductSchema = new Schema({
     type: String,
     required: true
   },
+  brand: {
+    type: String
+  },
+  size: {
+    type: String
+  },
+  serial: {
+    type: String
+  },
   description: {
     type: String,
     required: true
   },
-  color: {
-    type: String
-  },
-  date: {
-    type: String
-  },
   validator: {
     type: String
   },
-  manufac: {
-    type: String
+  tokenID: {
+    type: Number
   },
-  lovely: {
+  likeNum: {
+    type: Number
+  },
+  isSell: {
+    type: Boolean
+  },
+  buyer: {
     type: String
   }
 })

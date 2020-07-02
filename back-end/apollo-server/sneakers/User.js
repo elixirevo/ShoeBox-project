@@ -27,7 +27,10 @@ const UserSchema = new Schema({
   likeProducts: {
     type: Array,
     required: false
-  }
+  },
+  isAdmin: {
+    type: Boolean
+  },
 })
 
 export default mongoose.model('users', UserSchema)
