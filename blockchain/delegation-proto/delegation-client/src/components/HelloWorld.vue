@@ -56,25 +56,6 @@ export default {
       this.$socket.on('disconnect', function() {
         console.log('Connection closed')
       })
-
-      // this.$http
-      //   .post('http://127.0.0.1:1337', senderRawTransaction)
-      //   .then(console.log)
-      //   .catch(console.log)
-      // =====================================================
-      // const client = this.$net
-      // client.connect(1337, '127.0.0.1', function() {
-      //   console.log('Connected to fee delegated service')
-      // })
-      // client.write(senderRawTransaction)
-
-      // client.on('data', function(data) {
-      //   console.log('Received data from server: ' + data)
-      // })
-
-      // client.on('close', function() {
-      //   console.log('Connection closed')
-      // })
     },
     async getKlay() {
       const pebklay = await caver.klay.getBalance(this.myaddress)

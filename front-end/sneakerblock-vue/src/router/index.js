@@ -30,7 +30,7 @@ const routes = [
     component: () => import('@/views/ProductEnroll.vue'),
   },
   {
-    path: '/itembuy',
+    path: '/itembuy/:id',
     name: 'ItemBuy',
     component: () => import('@/views/ItemBuy.vue'),
   },
@@ -40,7 +40,7 @@ const routes = [
     component: () => import('@/views/Product.vue'),
   },
   {
-    path: '/item',
+    path: '/item/:id',
     name: 'Item',
     component: () => import('@/views/ProductItem.vue'),
   },
@@ -80,11 +80,6 @@ const routes = [
     path: '/search',
     name: 'Search',
     component: () => import('@/views/Search.vue'),
-  },
-  {
-    path: '/itembuy',
-    name: 'ItemBuy',
-    component: () => import('@/views/ItemBuy.vue'),
   },
   {
     path: '/test',

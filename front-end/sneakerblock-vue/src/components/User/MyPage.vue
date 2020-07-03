@@ -35,10 +35,10 @@
     </v-col>
     <v-col cols="12" class="text-center">
       <v-card max-width="400" class="mx-auto" flat>
-        <p>이메일: {{ userinfo.email }}</p>
-        <p>이름: {{ userinfo.name }}</p>
+        <p>이메일: {{ userInfo.email }}</p>
+        <p>이름: {{ userInfo.name }}</p>
         <p>유저유형: {{ userinfo.type }}</p>
-        <p>배송지: {{ userinfo.deliveryAddress }}</p>
+        <p>배송지: {{ userInfo.homeAddress }}</p>
         <div class="text-right mt-12 mb-12">
           <v-btn color="success" @click="changeUserType">검증자 신청</v-btn>
         </div>
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -72,6 +73,9 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState(['userInfo']),
   },
   methods: {
     changeUserType() {

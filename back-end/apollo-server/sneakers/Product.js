@@ -5,7 +5,6 @@ const Schema = mongoose.Schema
 const ProductSchema = new Schema({
   name: {
     type: String,
-    required: true
   },
   price: {
     type: String
@@ -15,7 +14,6 @@ const ProductSchema = new Schema({
   },
   seller: {
     type: String,
-    required: true
   },
   brand: {
     type: String
@@ -28,7 +26,6 @@ const ProductSchema = new Schema({
   },
   description: {
     type: String,
-    required: true
   },
   validator: {
     type: String

@@ -10,8 +10,8 @@ export const config = {
 }
 const caver = new Caver(new Web3.providers.HttpProvider(config.rpcURL))
 
-const DEPLOYED_ADDRESS_TOKEN7 = '0xf6E1f48CC41Fc55EB67b1119F40a0beaFB4362b6'
-const DEPLOYED_ADDRESS_TOKEN17 = '0x98137F18a4A2dc1444eF33edf9eDddB5C8D8A4f0'
+const DEPLOYED_ADDRESS_TOKEN7 = '0xD1Cb3cFC999d47A330D8f9792B30367f69F8e54b'
+const DEPLOYED_ADDRESS_TOKEN17 = '0x0F3c4462f1c977dF3991e85b7913daF2A130c614'
 
 const getContractInstanceToken7 = () => {
   const contractInstance = deployedABIToken7 && DEPLOYED_ADDRESS_TOKEN7 && new caver.klay.Contract(deployedABIToken7, DEPLOYED_ADDRESS_TOKEN7)

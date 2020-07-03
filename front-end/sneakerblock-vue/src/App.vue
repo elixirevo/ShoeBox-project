@@ -18,9 +18,9 @@
                 <h2>유저정보</h2>
               </v-col>
               <v-col cols="12">
-                <h4>이름: 테스트</h4>
-                <h4>이메일: test@test.com</h4>
-                <h4>잔액: 05435 XKRW</h4>
+                <h4>이름: {{ userInfo.name }}</h4>
+                <h4>이메일: {{ userInfo.email }}</h4>
+                <h4>잔액: 0 XKRW</h4>
               </v-col>
             </v-row>
           </v-container>
@@ -163,11 +163,12 @@ export default {
     }
   },
   computed: {
-    ...mapState(['isLogin']),
+    ...mapState(['isLogin', 'userInfo']),
   },
   created() {
     window.addEventListener('resize', this.handleResize)
     this.handleResize()
+    // console.log(this.userInfo)
   },
   destroyed() {
     window.removeEventListener('resize', this.handleResize)

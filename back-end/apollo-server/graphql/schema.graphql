@@ -87,17 +87,17 @@ type Product {
 }
 
 input ProductEnroll {
-  name: String!
-  price: String!
-  img: String!
-  seller: String!
-  brand: String!
-  size: String!
-  serial: String!
-  description: String!
-  validator: String!
-  tokenID: Int!
-  likeNum: Int!
+  name: String
+  price: String
+  img: String
+  seller: String
+  brand: String
+  size: String
+  serial: String
+  description: String
+  validator: String
+  tokenID: Int
+  likeNum: Int
   isSell: Boolean
 }
 
