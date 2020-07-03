@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import jwt from 'jsonwebtoken'
 
 // import wallet from '@/store/modules/wallet'
 import { caver } from '@/klaytn/caver'
@@ -20,6 +21,8 @@ export default new Vuex.Store({
     userHomeAddress: '',
     userKlayAddress: '',
     userKlayPrivateKey: '',
+
+    userInfo: null,
   },
   getters: {
     //
@@ -60,14 +63,17 @@ export default new Vuex.Store({
     signOut: state => {
       state.isLogin = false
       state.accessToken = null
+      state.userInfo = null
       localStorage.removeItem('access-token')
     },
     tokenSave: state => {
       localStorage.setItem('access-token', state.accessToken)
+      state.userInfo = jwt.decode(state.accessToken)
     },
     getStorageToken: state => {
       state.accessToken = localStorage.getItem('access-token')
       if (state.accessToken !== null) state.isLogin = true
+      state.userInfo = jwt.decode(state.accessToken)
     },
   },
   actions: {

@@ -2,83 +2,9 @@
   "contractName": "Pausable",
   "abi": [
     {
-      "inputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "Paused",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "PauserAdded",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "PauserRemoved",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "Unpaused",
-      "type": "event"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "addPauser",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "constant": true,
       "inputs": [
         {
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -86,7 +12,6 @@
       "name": "isPauser",
       "outputs": [
         {
-          "internalType": "bool",
           "name": "",
           "type": "bool"
         }
@@ -105,12 +30,79 @@
       "type": "function"
     },
     {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "addPauser",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "PauserAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "PauserRemoved",
+      "type": "event"
+    },
+    {
       "constant": true,
       "inputs": [],
       "name": "paused",
       "outputs": [
         {
-          "internalType": "bool",
           "name": "",
           "type": "bool"
         }
@@ -138,15 +130,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"PauserAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"PauserRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addPauser\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isPauser\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renouncePauser\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Contract module which allows children to implement an emergency stop mechanism that can be triggered by an authorized account. * This module is used through inheritance. It will make available the modifiers `whenNotPaused` and `whenPaused`, which can be applied to the functions of your contract. Note that they will not be pausable by simply including this module, only once the modifiers are put in place.\",\"methods\":{\"constructor\":{\"details\":\"Initializes the contract in unpaused state. Assigns the Pauser role to the deployer.\"},\"pause()\":{\"details\":\"Called by a pauser to pause, triggers stopped state.\"},\"paused()\":{\"details\":\"Returns true if the contract is paused, and false otherwise.\"},\"unpause()\":{\"details\":\"Called by a pauser to unpause, returns to normal state.\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/lifecycle/Pausable.sol\":\"Pausable\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol\":{\"keccak256\":\"0xb002c378d7b82a101bd659c341518953ca0919d342c0a400196982c0e7e7bcdb\",\"urls\":[\"bzz-raw://00a788c4631466c220b385bdd100c571d24b2deccd657615cfbcef6cadf669a4\",\"dweb:/ipfs/QmTEwDbjJNxmMNCDMqtuou3dyM8Wtp8Q9NFvn7SAVM7Jf3\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol\":{\"keccak256\":\"0xf6826c684d51ca28db5293ce11a54c5cca1c757b6cd32b87613833c65086f995\",\"urls\":[\"bzz-raw://c7567f010ac880ffd52ab8c77da2990cbb2a023b967ca1570bfd78290df7119b\",\"dweb:/ipfs/QmTJQMxPH9ZqzKnaHY2ZDuumL2VQsky5MWkoqoFqHLBomq\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/lifecycle/Pausable.sol\":{\"keccak256\":\"0x609f8cb524cd6b502624c79c099ec2fc6f23eef57b5c38e28efd82490875f37e\",\"urls\":[\"bzz-raw://3f1a4ce1e32696cbfc3441c5c8a554842783a786bdf4cd2f2e0a1304317a53da\",\"dweb:/ipfs/QmYeYyKmfvg392XU1k82ZjW11HDqJWFN9AmW2n9LuRDWaw\"]}},\"version\":1}",
+  "metadata": "",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\n\nimport \"../access/roles/PauserRole.sol\";\n\n/**\n * @dev Contract module which allows children to implement an emergency stop\n * mechanism that can be triggered by an authorized account.\n *\n * This module is used through inheritance. It will make available the\n * modifiers `whenNotPaused` and `whenPaused`, which can be applied to\n * the functions of your contract. Note that they will not be pausable by\n * simply including this module, only once the modifiers are put in place.\n */\ncontract Pausable is PauserRole {\n    /**\n     * @dev Emitted when the pause is triggered by a pauser (`account`).\n     */\n    event Paused(address account);\n\n    /**\n     * @dev Emitted when the pause is lifted by a pauser (`account`).\n     */\n    event Unpaused(address account);\n\n    bool private _paused;\n\n    /**\n     * @dev Initializes the contract in unpaused state. Assigns the Pauser role\n     * to the deployer.\n     */\n    constructor () internal {\n        _paused = false;\n    }\n\n    /**\n     * @dev Returns true if the contract is paused, and false otherwise.\n     */\n    function paused() public view returns (bool) {\n        return _paused;\n    }\n\n    /**\n     * @dev Modifier to make a function callable only when the contract is not paused.\n     */\n    modifier whenNotPaused() {\n        require(!_paused, \"Pausable: paused\");\n        _;\n    }\n\n    /**\n     * @dev Modifier to make a function callable only when the contract is paused.\n     */\n    modifier whenPaused() {\n        require(_paused, \"Pausable: not paused\");\n        _;\n    }\n\n    /**\n     * @dev Called by a pauser to pause, triggers stopped state.\n     */\n    function pause() public onlyPauser whenNotPaused {\n        _paused = true;\n        emit Paused(msg.sender);\n    }\n\n    /**\n     * @dev Called by a pauser to unpause, returns to normal state.\n     */\n    function unpause() public onlyPauser whenPaused {\n        _paused = false;\n        emit Unpaused(msg.sender);\n    }\n}\n",
-  "sourcePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/lifecycle/Pausable.sol",
+  "sourcePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/lifecycle/Pausable.sol",
   "ast": {
-    "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/lifecycle/Pausable.sol",
+    "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/lifecycle/Pausable.sol",
     "exportedSymbols": {
       "Pausable": [
         1157
@@ -167,7 +159,7 @@
         "src": "0:23:10"
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol",
         "file": "../access/roles/PauserRole.sol",
         "id": 1075,
         "nodeType": "ImportDirective",
@@ -1107,7 +1099,7 @@
     "src": "0:1970:10"
   },
   "legacyAST": {
-    "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/lifecycle/Pausable.sol",
+    "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/lifecycle/Pausable.sol",
     "exportedSymbols": {
       "Pausable": [
         1157
@@ -1128,7 +1120,7 @@
         "src": "0:23:10"
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol",
         "file": "../access/roles/PauserRole.sol",
         "id": 1075,
         "nodeType": "ImportDirective",
@@ -2069,11 +2061,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+    "version": "0.5.1+commit.c8a2cb62.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-06-26T03:27:15.749Z",
+  "updatedAt": "2020-07-02T16:49:10.452Z",
   "devdoc": {
     "details": "Contract module which allows children to implement an emergency stop mechanism that can be triggered by an authorized account. * This module is used through inheritance. It will make available the modifiers `whenNotPaused` and `whenPaused`, which can be applied to the functions of your contract. Note that they will not be pausable by simply including this module, only once the modifiers are put in place.",
     "methods": {

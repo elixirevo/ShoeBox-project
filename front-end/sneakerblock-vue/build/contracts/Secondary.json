@@ -12,7 +12,6 @@
       "inputs": [
         {
           "indexed": false,
-          "internalType": "address",
           "name": "recipient",
           "type": "address"
         }
@@ -26,7 +25,6 @@
       "name": "primary",
       "outputs": [
         {
-          "internalType": "address",
           "name": "",
           "type": "address"
         }
@@ -39,7 +37,6 @@
       "constant": false,
       "inputs": [
         {
-          "internalType": "address",
           "name": "recipient",
           "type": "address"
         }
@@ -51,15 +48,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"PrimaryTransferred\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[],\"name\":\"primary\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"transferPrimary\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"A Secondary contract can only be used by its primary account (the one that created it).\",\"methods\":{\"constructor\":{\"details\":\"Sets the primary account to the one that is creating the Secondary contract.\"},\"primary()\":{\"return\":\"the address of the primary.\"},\"transferPrimary(address)\":{\"details\":\"Transfers contract to a new primary.\",\"params\":{\"recipient\":\"The address of new primary.\"}}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/ownership/Secondary.sol\":\"Secondary\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/GSN/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzz-raw://216ef9d6b614db4eb46970b4e84903f2534a45572dd30a79f0041f1a5830f436\",\"dweb:/ipfs/QmNPrJ4MWKUAWzKXpUqeyKRUfosaoANZAqXgvepdrCwZAG\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/ownership/Secondary.sol\":{\"keccak256\":\"0xb55d511ea1d79aa4ff7063ac50d134a47c6d3b43b0ee7163e9310c403a945888\",\"urls\":[\"bzz-raw://3dbac745f30f95972c78216578173f098cf89fbcd7e976e26bcd6e8707553d61\",\"dweb:/ipfs/Qme7K9o8sEYRcwUfe5VNnpbGGiTyPYbrSxZNUkm2qXJ9VK\"]}},\"version\":1}",
+  "metadata": "",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\n\nimport \"../GSN/Context.sol\";\n/**\n * @dev A Secondary contract can only be used by its primary account (the one that created it).\n */\ncontract Secondary is Context {\n    address private _primary;\n\n    /**\n     * @dev Emitted when the primary contract changes.\n     */\n    event PrimaryTransferred(\n        address recipient\n    );\n\n    /**\n     * @dev Sets the primary account to the one that is creating the Secondary contract.\n     */\n    constructor () internal {\n        address msgSender = _msgSender();\n        _primary = msgSender;\n        emit PrimaryTransferred(msgSender);\n    }\n\n    /**\n     * @dev Reverts if called from any account other than the primary.\n     */\n    modifier onlyPrimary() {\n        require(_msgSender() == _primary, \"Secondary: caller is not the primary account\");\n        _;\n    }\n\n    /**\n     * @return the address of the primary.\n     */\n    function primary() public view returns (address) {\n        return _primary;\n    }\n\n    /**\n     * @dev Transfers contract to a new primary.\n     * @param recipient The address of new primary.\n     */\n    function transferPrimary(address recipient) public onlyPrimary {\n        require(recipient != address(0), \"Secondary: new primary is the zero address\");\n        _primary = recipient;\n        emit PrimaryTransferred(recipient);\n    }\n}\n",
-  "sourcePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/ownership/Secondary.sol",
+  "sourcePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/ownership/Secondary.sol",
   "ast": {
-    "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/ownership/Secondary.sol",
+    "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/ownership/Secondary.sol",
     "exportedSymbols": {
       "Secondary": [
         1482
@@ -80,7 +77,7 @@
         "src": "0:23:13"
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/GSN/Context.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/GSN/Context.sol",
         "file": "../GSN/Context.sol",
         "id": 1411,
         "nodeType": "ImportDirective",
@@ -972,7 +969,7 @@
     "src": "0:1341:13"
   },
   "legacyAST": {
-    "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/ownership/Secondary.sol",
+    "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/ownership/Secondary.sol",
     "exportedSymbols": {
       "Secondary": [
         1482
@@ -993,7 +990,7 @@
         "src": "0:23:13"
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/GSN/Context.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/GSN/Context.sol",
         "file": "../GSN/Context.sol",
         "id": 1411,
         "nodeType": "ImportDirective",
@@ -1886,11 +1883,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+    "version": "0.5.1+commit.c8a2cb62.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-06-26T03:27:15.754Z",
+  "updatedAt": "2020-07-02T16:49:10.456Z",
   "devdoc": {
     "details": "A Secondary contract can only be used by its primary account (the one that created it).",
     "methods": {

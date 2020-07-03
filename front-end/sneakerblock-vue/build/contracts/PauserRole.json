@@ -12,7 +12,6 @@
       "inputs": [
         {
           "indexed": true,
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -25,7 +24,6 @@
       "inputs": [
         {
           "indexed": true,
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -37,7 +35,6 @@
       "constant": true,
       "inputs": [
         {
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -45,7 +42,6 @@
       "name": "isPauser",
       "outputs": [
         {
-          "internalType": "bool",
           "name": "",
           "type": "bool"
         }
@@ -58,7 +54,6 @@
       "constant": false,
       "inputs": [
         {
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -79,15 +74,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"PauserAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"PauserRemoved\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addPauser\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isPauser\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renouncePauser\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol\":\"PauserRole\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol\":{\"keccak256\":\"0xb002c378d7b82a101bd659c341518953ca0919d342c0a400196982c0e7e7bcdb\",\"urls\":[\"bzz-raw://00a788c4631466c220b385bdd100c571d24b2deccd657615cfbcef6cadf669a4\",\"dweb:/ipfs/QmTEwDbjJNxmMNCDMqtuou3dyM8Wtp8Q9NFvn7SAVM7Jf3\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol\":{\"keccak256\":\"0xf6826c684d51ca28db5293ce11a54c5cca1c757b6cd32b87613833c65086f995\",\"urls\":[\"bzz-raw://c7567f010ac880ffd52ab8c77da2990cbb2a023b967ca1570bfd78290df7119b\",\"dweb:/ipfs/QmTJQMxPH9ZqzKnaHY2ZDuumL2VQsky5MWkoqoFqHLBomq\"]}},\"version\":1}",
+  "metadata": "",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\n\nimport \"../Roles.sol\";\n\ncontract PauserRole {\n    using Roles for Roles.Role;\n\n    event PauserAdded(address indexed account);\n    event PauserRemoved(address indexed account);\n\n    Roles.Role private _pausers;\n\n    constructor () internal {\n        _addPauser(msg.sender);\n    }\n\n    modifier onlyPauser() {\n        require(isPauser(msg.sender), \"PauserRole: caller does not have the Pauser role\");\n        _;\n    }\n\n    function isPauser(address account) public view returns (bool) {\n        return _pausers.has(account);\n    }\n\n    function addPauser(address account) public onlyPauser {\n        _addPauser(account);\n    }\n\n    function renouncePauser() public {\n        _removePauser(msg.sender);\n    }\n\n    function _addPauser(address account) internal {\n        _pausers.add(account);\n        emit PauserAdded(account);\n    }\n\n    function _removePauser(address account) internal {\n        _pausers.remove(account);\n        emit PauserRemoved(account);\n    }\n}\n",
-  "sourcePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol",
+  "sourcePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol",
   "ast": {
-    "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol",
+    "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol",
     "exportedSymbols": {
       "PauserRole": [
         961
@@ -108,7 +103,7 @@
         "src": "0:23:6"
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol",
         "file": "../Roles.sol",
         "id": 860,
         "nodeType": "ImportDirective",
@@ -1309,7 +1304,7 @@
     "src": "0:992:6"
   },
   "legacyAST": {
-    "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol",
+    "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol",
     "exportedSymbols": {
       "PauserRole": [
         961
@@ -1330,7 +1325,7 @@
         "src": "0:23:6"
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol",
         "file": "../Roles.sol",
         "id": 860,
         "nodeType": "ImportDirective",
@@ -2532,11 +2527,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+    "version": "0.5.1+commit.c8a2cb62.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-06-26T03:27:15.745Z",
+  "updatedAt": "2020-07-02T16:49:10.447Z",
   "devdoc": {
     "methods": {}
   },

@@ -12,7 +12,6 @@
       "inputs": [
         {
           "indexed": true,
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -25,7 +24,6 @@
       "inputs": [
         {
           "indexed": true,
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -37,7 +35,6 @@
       "constant": true,
       "inputs": [
         {
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -45,7 +42,6 @@
       "name": "isMinter",
       "outputs": [
         {
-          "internalType": "bool",
           "name": "",
           "type": "bool"
         }
@@ -58,7 +54,6 @@
       "constant": false,
       "inputs": [
         {
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -79,15 +74,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"MinterAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"MinterRemoved\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addMinter\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isMinter\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renounceMinter\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/MinterRole.sol\":\"MinterRole\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol\":{\"keccak256\":\"0xb002c378d7b82a101bd659c341518953ca0919d342c0a400196982c0e7e7bcdb\",\"urls\":[\"bzz-raw://00a788c4631466c220b385bdd100c571d24b2deccd657615cfbcef6cadf669a4\",\"dweb:/ipfs/QmTEwDbjJNxmMNCDMqtuou3dyM8Wtp8Q9NFvn7SAVM7Jf3\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/MinterRole.sol\":{\"keccak256\":\"0x63da54a7a5d4e4d82ac8d1f4f7f995fd8ef2b5fe1f2960b83e534fa37fb60910\",\"urls\":[\"bzz-raw://22e54aa25d633d51efaadb0c956ddd80616a79ee79a41bb8d958473712732612\",\"dweb:/ipfs/QmNbiwWkL4v1i6TgrppGahxHBUHJUrLJLVc8EDb7DFsVDq\"]}},\"version\":1}",
+  "metadata": "",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\n\nimport \"../Roles.sol\";\n\ncontract MinterRole {\n    using Roles for Roles.Role;\n\n    event MinterAdded(address indexed account);\n    event MinterRemoved(address indexed account);\n\n    Roles.Role private _minters;\n\n    constructor () internal {\n        _addMinter(msg.sender);\n    }\n\n    modifier onlyMinter() {\n        require(isMinter(msg.sender), \"MinterRole: caller does not have the Minter role\");\n        _;\n    }\n\n    function isMinter(address account) public view returns (bool) {\n        return _minters.has(account);\n    }\n\n    function addMinter(address account) public onlyMinter {\n        _addMinter(account);\n    }\n\n    function renounceMinter() public {\n        _removeMinter(msg.sender);\n    }\n\n    function _addMinter(address account) internal {\n        _minters.add(account);\n        emit MinterAdded(account);\n    }\n\n    function _removeMinter(address account) internal {\n        _minters.remove(account);\n        emit MinterRemoved(account);\n    }\n}\n",
-  "sourcePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/MinterRole.sol",
+  "sourcePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/MinterRole.sol",
   "ast": {
-    "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/MinterRole.sol",
+    "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/MinterRole.sol",
     "exportedSymbols": {
       "MinterRole": [
         857
@@ -108,7 +103,7 @@
         "src": "0:23:5"
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol",
         "file": "../Roles.sol",
         "id": 756,
         "nodeType": "ImportDirective",
@@ -1309,7 +1304,7 @@
     "src": "0:992:5"
   },
   "legacyAST": {
-    "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/MinterRole.sol",
+    "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/MinterRole.sol",
     "exportedSymbols": {
       "MinterRole": [
         857
@@ -1330,7 +1325,7 @@
         "src": "0:23:5"
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol",
         "file": "../Roles.sol",
         "id": 756,
         "nodeType": "ImportDirective",
@@ -2532,11 +2527,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+    "version": "0.5.1+commit.c8a2cb62.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-06-26T03:27:15.743Z",
+  "updatedAt": "2020-07-02T16:49:10.446Z",
   "devdoc": {
     "methods": {}
   },

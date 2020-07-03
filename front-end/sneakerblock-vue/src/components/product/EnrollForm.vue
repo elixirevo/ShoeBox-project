@@ -10,7 +10,7 @@
             <v-col cols="12">
               <v-row justify="center" class="mx-1 mt-12 mb-6">
                 <v-card class="max-auto" flat>
-                  <v-img src="https://picsum.photos/300/300?random"></v-img>
+                  <v-img src="https://dummyimage.com/300x300.jpg?text=input%20image"></v-img>
                 </v-card>
               </v-row>
             </v-col>
@@ -67,7 +67,7 @@
             </v-col>
             <v-col cols="12">
               <v-row justify="end" class="mx-1">
-                <v-btn color="success">등록</v-btn>
+                <v-btn color="success" @click="enrollItem">등록</v-btn>
               </v-row>
             </v-col>
           </v-row>
@@ -78,6 +78,7 @@
 </template>
 
 <script>
+import ENROLL from '@/graphql/productEnroll.gql'
 export default {
   data() {
     return {
@@ -93,7 +94,37 @@ export default {
       originNumVal: null,
       validatorVal: null,
       itemExplainVal: null,
+      itemImg: '1.jpg',
     }
+  },
+  methods: {
+    enrollItem() {
+      console.log(typeof true)
+      this.$apollo
+        .mutate({
+          mutation: ENROLL,
+          variables: {
+            name: this.modelNameVal,
+            price: this.priceVal,
+            img: this.itemImg,
+            seller: 'asd',
+            brand: this.brandVal,
+            size: this.sizeVal,
+            serial: this.originNumVal,
+            description: this.itemExplainVal,
+            validator: this.validatorVal,
+            tokenID: parseInt(0, 10),
+            likeNum: parseInt(0, 10),
+            isSell: true,
+          },
+        })
+        .then(result => {
+          console.log(result.data)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
   },
 }
 </script>

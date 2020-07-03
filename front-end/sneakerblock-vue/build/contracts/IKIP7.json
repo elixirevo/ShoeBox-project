@@ -2,48 +2,39 @@
   "contractName": "IKIP7",
   "abi": [
     {
-      "anonymous": false,
+      "constant": true,
       "inputs": [
         {
-          "indexed": true,
-          "internalType": "address",
-          "name": "owner",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "spender",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "value",
-          "type": "uint256"
+          "name": "interfaceId",
+          "type": "bytes4"
         }
       ],
-      "name": "Approval",
-      "type": "event"
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     },
     {
       "anonymous": false,
       "inputs": [
         {
           "indexed": true,
-          "internalType": "address",
           "name": "from",
           "type": "address"
         },
         {
           "indexed": true,
-          "internalType": "address",
           "name": "to",
           "type": "address"
         },
         {
           "indexed": false,
-          "internalType": "uint256",
           "name": "value",
           "type": "uint256"
         }
@@ -52,25 +43,26 @@
       "type": "event"
     },
     {
-      "constant": true,
+      "anonymous": false,
       "inputs": [
         {
-          "internalType": "bytes4",
-          "name": "interfaceId",
-          "type": "bytes4"
-        }
-      ],
-      "name": "supportsInterface",
-      "outputs": [
+          "indexed": true,
+          "name": "owner",
+          "type": "address"
+        },
         {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
+          "indexed": true,
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
         }
       ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
+      "name": "Approval",
+      "type": "event"
     },
     {
       "constant": true,
@@ -78,7 +70,6 @@
       "name": "totalSupply",
       "outputs": [
         {
-          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -91,7 +82,6 @@
       "constant": true,
       "inputs": [
         {
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -99,7 +89,6 @@
       "name": "balanceOf",
       "outputs": [
         {
-          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -112,12 +101,10 @@
       "constant": false,
       "inputs": [
         {
-          "internalType": "address",
           "name": "recipient",
           "type": "address"
         },
         {
-          "internalType": "uint256",
           "name": "amount",
           "type": "uint256"
         }
@@ -125,7 +112,6 @@
       "name": "transfer",
       "outputs": [
         {
-          "internalType": "bool",
           "name": "",
           "type": "bool"
         }
@@ -138,12 +124,10 @@
       "constant": true,
       "inputs": [
         {
-          "internalType": "address",
           "name": "owner",
           "type": "address"
         },
         {
-          "internalType": "address",
           "name": "spender",
           "type": "address"
         }
@@ -151,7 +135,6 @@
       "name": "allowance",
       "outputs": [
         {
-          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -164,12 +147,10 @@
       "constant": false,
       "inputs": [
         {
-          "internalType": "address",
           "name": "spender",
           "type": "address"
         },
         {
-          "internalType": "uint256",
           "name": "amount",
           "type": "uint256"
         }
@@ -177,7 +158,6 @@
       "name": "approve",
       "outputs": [
         {
-          "internalType": "bool",
           "name": "",
           "type": "bool"
         }
@@ -190,17 +170,14 @@
       "constant": false,
       "inputs": [
         {
-          "internalType": "address",
           "name": "sender",
           "type": "address"
         },
         {
-          "internalType": "address",
           "name": "recipient",
           "type": "address"
         },
         {
-          "internalType": "uint256",
           "name": "amount",
           "type": "uint256"
         }
@@ -208,7 +185,6 @@
       "name": "transferFrom",
       "outputs": [
         {
-          "internalType": "bool",
           "name": "",
           "type": "bool"
         }
@@ -221,12 +197,10 @@
       "constant": false,
       "inputs": [
         {
-          "internalType": "address",
           "name": "recipient",
           "type": "address"
         },
         {
-          "internalType": "uint256",
           "name": "amount",
           "type": "uint256"
         }
@@ -241,17 +215,14 @@
       "constant": false,
       "inputs": [
         {
-          "internalType": "address",
           "name": "recipient",
           "type": "address"
         },
         {
-          "internalType": "uint256",
           "name": "amount",
           "type": "uint256"
         },
         {
-          "internalType": "bytes",
           "name": "data",
           "type": "bytes"
         }
@@ -266,17 +237,14 @@
       "constant": false,
       "inputs": [
         {
-          "internalType": "address",
           "name": "sender",
           "type": "address"
         },
         {
-          "internalType": "address",
           "name": "recipient",
           "type": "address"
         },
         {
-          "internalType": "uint256",
           "name": "amount",
           "type": "uint256"
         }
@@ -291,22 +259,18 @@
       "constant": false,
       "inputs": [
         {
-          "internalType": "address",
           "name": "sender",
           "type": "address"
         },
         {
-          "internalType": "address",
           "name": "recipient",
           "type": "address"
         },
         {
-          "internalType": "uint256",
           "name": "amount",
           "type": "uint256"
         },
         {
-          "internalType": "bytes",
           "name": "data",
           "type": "bytes"
         }
@@ -318,15 +282,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"safeTransfer\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransfer\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the KIP7 standard as defined in the KIP. Does not include the optional functions; to access them see `KIP7Metadata`. See http://kips.klaytn.com/KIPs/kip-7-fungible_token\",\"methods\":{\"allowance(address,address)\":{\"details\":\"Returns the remaining number of tokens that `spender` will be allowed to spend on behalf of `owner` through `transferFrom`. This is zero by default.     * This value changes when `approve` or `transferFrom` are called.\"},\"approve(address,uint256)\":{\"details\":\"Sets `amount` as the allowance of `spender` over the caller's tokens.     * Returns a boolean value indicating whether the operation succeeded.     * > Beware that changing an allowance with this method brings the risk that someone may use both the old and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729     * Emits an `Approval` event.\"},\"balanceOf(address)\":{\"details\":\"Returns the amount of tokens owned by `account`.\"},\"safeTransfer(address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`.\"},\"safeTransfer(address,uint256,bytes)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`.\"},\"safeTransferFrom(address,address,uint256)\":{\"details\":\"Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism. `amount` is then deducted from the caller's allowance.\"},\"safeTransferFrom(address,address,uint256,bytes)\":{\"details\":\"Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism. `amount` is then deducted from the caller's allowance.\"},\"supportsInterface(bytes4)\":{\"details\":\"Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding [KIP-13 section](http://kips.klaytn.com/KIPs/kip-13-interface_query_standard#how-interface-identifiers-are-defined) to learn more about how these ids are created.     * This function call must use less than 30 000 gas.\"},\"totalSupply()\":{\"details\":\"Returns the amount of tokens in existence.\"},\"transfer(address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`.     * Returns a boolean value indicating whether the operation succeeded.     * Emits a `Transfer` event.\"},\"transferFrom(address,address,uint256)\":{\"details\":\"Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism. `amount` is then deducted from the caller's allowance.     * Returns a boolean value indicating whether the operation succeeded.     * Emits a `Transfer` event.\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/IKIP7.sol\":\"IKIP7\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/introspection/IKIP13.sol\":{\"keccak256\":\"0xf7415711dbec40bc633af7d8cb5c3c0bc3d1ed97fd8c13f795a03eb3073ea219\",\"urls\":[\"bzz-raw://c3583b6a39425cc359116200869b24b50c2293c6e68d09c4d4b804861b431ae0\",\"dweb:/ipfs/QmWZWD7oEtz7QbM5AmUtrbZpDVkxzeX8JGcVkUVmvRRaVa\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/IKIP7.sol\":{\"keccak256\":\"0xb2b107e08a5044b50d4596191b2853ada5d87b351765a66b8cff7062b159843d\",\"urls\":[\"bzz-raw://c694e350210c956e426097d0ef5aa5ab38196db67095097d05fb4efc25186ff0\",\"dweb:/ipfs/QmXerzSt7z6qZyMrEPfLwwJaqXfppSX1KTYiAW2GxDUTkG\"]}},\"version\":1}",
+  "metadata": "",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\n\nimport \"../../introspection/IKIP13.sol\";\n\n/**\n * @dev Interface of the KIP7 standard as defined in the KIP. Does not include\n * the optional functions; to access them see `KIP7Metadata`.\n * See http://kips.klaytn.com/KIPs/kip-7-fungible_token\n */\ncontract IKIP7 is IKIP13 {\n    /**\n     * @dev Returns the amount of tokens in existence.\n     */\n    function totalSupply() external view returns (uint256);\n\n    /**\n     * @dev Returns the amount of tokens owned by `account`.\n     */\n    function balanceOf(address account) external view returns (uint256);\n\n    /**\n     * @dev Moves `amount` tokens from the caller's account to `recipient`.\n     *\n     * Returns a boolean value indicating whether the operation succeeded.\n     *\n     * Emits a `Transfer` event.\n     */\n    function transfer(address recipient, uint256 amount) external returns (bool);\n\n    /**\n     * @dev Returns the remaining number of tokens that `spender` will be\n     * allowed to spend on behalf of `owner` through `transferFrom`. This is\n     * zero by default.\n     *\n     * This value changes when `approve` or `transferFrom` are called.\n     */\n    function allowance(address owner, address spender) external view returns (uint256);\n\n    /**\n     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\n     *\n     * Returns a boolean value indicating whether the operation succeeded.\n     *\n     * > Beware that changing an allowance with this method brings the risk\n     * that someone may use both the old and the new allowance by unfortunate\n     * transaction ordering. One possible solution to mitigate this race\n     * condition is to first reduce the spender's allowance to 0 and set the\n     * desired value afterwards:\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\n     *\n     * Emits an `Approval` event.\n     */\n    function approve(address spender, uint256 amount) external returns (bool);\n\n    /**\n     * @dev Moves `amount` tokens from `sender` to `recipient` using the\n     * allowance mechanism. `amount` is then deducted from the caller's\n     * allowance.\n     *\n     * Returns a boolean value indicating whether the operation succeeded.\n     *\n     * Emits a `Transfer` event.\n     */\n    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);\n\n    /**\n    * @dev Moves `amount` tokens from the caller's account to `recipient`.\n    */\n    function safeTransfer(address recipient, uint256 amount, bytes memory data) public;\n\n    /**\n    * @dev  Moves `amount` tokens from the caller's account to `recipient`.\n    */\n    function safeTransfer(address recipient, uint256 amount) public;\n\n    /**\n    * @dev Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism.\n    * `amount` is then deducted from the caller's allowance.\n    */\n    function safeTransferFrom(address sender, address recipient, uint256 amount, bytes memory data) public;\n\n    /**\n    * @dev Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism.\n    * `amount` is then deducted from the caller's allowance.\n    */\n    function safeTransferFrom(address sender, address recipient, uint256 amount) public;\n\n    /**\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\n     * another (`to`).\n     *\n     * Note that `value` may be zero.\n     */\n    event Transfer(address indexed from, address indexed to, uint256 value);\n\n    /**\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\n     * a call to `approve`. `value` is the new allowance.\n     */\n    event Approval(address indexed owner, address indexed spender, uint256 value);\n}\n",
-  "sourcePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/IKIP7.sol",
+  "sourcePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/IKIP7.sol",
   "ast": {
-    "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/IKIP7.sol",
+    "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/IKIP7.sol",
     "exportedSymbols": {
       "IKIP7": [
         3102
@@ -347,7 +311,7 @@
         "src": "0:23:29"
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/introspection/IKIP13.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/introspection/IKIP13.sol",
         "file": "../../introspection/IKIP13.sol",
         "id": 2997,
         "nodeType": "ImportDirective",
@@ -1622,7 +1586,7 @@
     "src": "0:3715:29"
   },
   "legacyAST": {
-    "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/IKIP7.sol",
+    "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/IKIP7.sol",
     "exportedSymbols": {
       "IKIP7": [
         3102
@@ -1643,7 +1607,7 @@
         "src": "0:23:29"
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/introspection/IKIP13.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/introspection/IKIP13.sol",
         "file": "../../introspection/IKIP13.sol",
         "id": 2997,
         "nodeType": "ImportDirective",
@@ -2919,11 +2883,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+    "version": "0.5.1+commit.c8a2cb62.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-06-26T03:27:15.776Z",
+  "updatedAt": "2020-07-02T16:49:10.477Z",
   "devdoc": {
     "details": "Interface of the KIP7 standard as defined in the KIP. Does not include the optional functions; to access them see `KIP7Metadata`. See http://kips.klaytn.com/KIPs/kip-7-fungible_token",
     "methods": {

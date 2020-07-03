@@ -12,7 +12,6 @@
       "inputs": [
         {
           "indexed": true,
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -25,7 +24,6 @@
       "inputs": [
         {
           "indexed": true,
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -37,7 +35,6 @@
       "constant": true,
       "inputs": [
         {
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -45,7 +42,6 @@
       "name": "isSpender",
       "outputs": [
         {
-          "internalType": "bool",
           "name": "",
           "type": "bool"
         }
@@ -58,7 +54,6 @@
       "constant": false,
       "inputs": [
         {
-          "internalType": "address",
           "name": "account",
           "type": "address"
         }
@@ -79,15 +74,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"SpenderAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"SpenderRemoved\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addSpender\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isSpender\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renounceSpender\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/Token7.sol\":\"SpenderRole\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/Token7.sol\":{\"keccak256\":\"0xda2f6ccc08725566b64c05484595e05c60df2885caad019cc9993003a4dbaffc\",\"urls\":[\"bzz-raw://21494b41de11719d12797a33ba300a182bdd45de3a1e758fe77a32c409afba90\",\"dweb:/ipfs/QmVBLGDvqhTgoyyK198tWS5i58fYhm2eYA4HNR9cUMqERp\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol\":{\"keccak256\":\"0xb002c378d7b82a101bd659c341518953ca0919d342c0a400196982c0e7e7bcdb\",\"urls\":[\"bzz-raw://00a788c4631466c220b385bdd100c571d24b2deccd657615cfbcef6cadf669a4\",\"dweb:/ipfs/QmTEwDbjJNxmMNCDMqtuou3dyM8Wtp8Q9NFvn7SAVM7Jf3\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/MinterRole.sol\":{\"keccak256\":\"0x63da54a7a5d4e4d82ac8d1f4f7f995fd8ef2b5fe1f2960b83e534fa37fb60910\",\"urls\":[\"bzz-raw://22e54aa25d633d51efaadb0c956ddd80616a79ee79a41bb8d958473712732612\",\"dweb:/ipfs/QmNbiwWkL4v1i6TgrppGahxHBUHJUrLJLVc8EDb7DFsVDq\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/roles/PauserRole.sol\":{\"keccak256\":\"0xf6826c684d51ca28db5293ce11a54c5cca1c757b6cd32b87613833c65086f995\",\"urls\":[\"bzz-raw://c7567f010ac880ffd52ab8c77da2990cbb2a023b967ca1570bfd78290df7119b\",\"dweb:/ipfs/QmTJQMxPH9ZqzKnaHY2ZDuumL2VQsky5MWkoqoFqHLBomq\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/introspection/IKIP13.sol\":{\"keccak256\":\"0xf7415711dbec40bc633af7d8cb5c3c0bc3d1ed97fd8c13f795a03eb3073ea219\",\"urls\":[\"bzz-raw://c3583b6a39425cc359116200869b24b50c2293c6e68d09c4d4b804861b431ae0\",\"dweb:/ipfs/QmWZWD7oEtz7QbM5AmUtrbZpDVkxzeX8JGcVkUVmvRRaVa\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/introspection/KIP13.sol\":{\"keccak256\":\"0x84681701e79f53ba1e9660b6a130bba31880d66cee996ab7d5567d239155c6da\",\"urls\":[\"bzz-raw://f35082a91314003570fca4b2426cd3f79db0eb846a456842db4a11f473db924d\",\"dweb:/ipfs/QmYdHAyrXSKjiDxji2L7bTpuPSSqjkwaKT7WM98Yrcy8KD\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/lifecycle/Pausable.sol\":{\"keccak256\":\"0x609f8cb524cd6b502624c79c099ec2fc6f23eef57b5c38e28efd82490875f37e\",\"urls\":[\"bzz-raw://3f1a4ce1e32696cbfc3441c5c8a554842783a786bdf4cd2f2e0a1304317a53da\",\"dweb:/ipfs/QmYeYyKmfvg392XU1k82ZjW11HDqJWFN9AmW2n9LuRDWaw\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/math/SafeMath.sol\":{\"keccak256\":\"0xd1804d04fb39689453f673601429a99a0c68c422a981fc338773df9a59180fe9\",\"urls\":[\"bzz-raw://1b9307920e0378d58c6677f8952ad090a9ecb30e878835e301a0d18386a870c1\",\"dweb:/ipfs/QmYYixTDVF4FXqFpYzEcufAwEY9BFBJ33Ew9ncsGvD7btC\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/IKIP7.sol\":{\"keccak256\":\"0xb2b107e08a5044b50d4596191b2853ada5d87b351765a66b8cff7062b159843d\",\"urls\":[\"bzz-raw://c694e350210c956e426097d0ef5aa5ab38196db67095097d05fb4efc25186ff0\",\"dweb:/ipfs/QmXerzSt7z6qZyMrEPfLwwJaqXfppSX1KTYiAW2GxDUTkG\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/IKIP7Receiver.sol\":{\"keccak256\":\"0xbe8276c8cc253992fc6789d62fb7946b859893948167dd1e326da6ece3202574\",\"urls\":[\"bzz-raw://836152f268ece40da50d3db623306a99d644e7dbe4eca983fa4072397f3a9e05\",\"dweb:/ipfs/QmU9A5CRjRD5hR6L98i8CK7PETkqaaMtM8ZZ18rcQA2E6D\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/KIP7.sol\":{\"keccak256\":\"0x2b345cc9f043282c2e934b0f2c0800b393d6148c4d1877af293c3b1c4c4989c0\",\"urls\":[\"bzz-raw://87fe198c27c4cc2d34d758fff797677de0e78d8fa6bbd027b6bdf9a8d00975e3\",\"dweb:/ipfs/QmUF855ErhZkzcJeBywNKe7Sho48WViuaXA7rna4p3hwXp\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/KIP7Burnable.sol\":{\"keccak256\":\"0xa7fff72e6b21f35ce7212e5a97f322691ee258e3a888bd4f24d05815e9fa3bf2\",\"urls\":[\"bzz-raw://ea2c2443efbc990dcd26a259425ecef2e1d7dd852b0a7bf074097e9c669d4635\",\"dweb:/ipfs/QmdwR6ghd6SyxfeaKLPmS38UNJFegi9innGY5WCTDgeETZ\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/KIP7Metadata.sol\":{\"keccak256\":\"0xda140ec3d07dd6af0836ab3a95f41b8f2b3f577becd0346645e949ca5b61fe25\",\"urls\":[\"bzz-raw://758803ce44044449e7e54558f882406be1d2b4a3dd9b43d6ab6004167cfef661\",\"dweb:/ipfs/QmbnEqC2zVQbMEaNXRpx2sYgg3ebAojiMSGpXpTpJe2xQu\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/KIP7Mintable.sol\":{\"keccak256\":\"0x570068428771fdaad8b8ba64d242bb8ae8fb9c5727b8dacf16cc681e3db0e7e6\",\"urls\":[\"bzz-raw://3b37d365f9366d1d1902a1de6bc18621c72744150c2e959f57f8faf08f3313cb\",\"dweb:/ipfs/QmWnySieR8GanTuM87XyZJZ3HF8dznc8LNgC3i4weqw1C6\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/KIP7Pausable.sol\":{\"keccak256\":\"0x23de84e4e60b19c9cde42a5c9a05961ce5fa008a7966ce1d180fca86e5c6841c\",\"urls\":[\"bzz-raw://9ec1f556772f2829fe62b195882bd1c9f53577617851f198fe6832fd4ad94004\",\"dweb:/ipfs/QmYbSixKdcEtPpUpoDQmQaaA1ktuEuhJvpbTd9rBtLEFcC\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/KIP7Token.sol\":{\"keccak256\":\"0x0b54bcf27302eae3341f27ffce528845b64b162481e608176bf173af1eeeea13\",\"urls\":[\"bzz-raw://fdb811692226ab69b8a42a3121fca7d351be55fd69ae40d3ffdbeb0503f4052e\",\"dweb:/ipfs/QmNvaHtANC3Sc5LvU8uTGgghRMKHwBLdcBUDnp64uSML9N\"]},\"/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/utils/Address.sol\":{\"keccak256\":\"0xf3358e5819ca73357abd6c90bdfffd0474af54364897f6b3e3234c4b71fbe9a1\",\"urls\":[\"bzz-raw://75ae8d04454d1511a2ed986cc8585736f05c5c25280683b3d24712a9f414a4bf\",\"dweb:/ipfs/Qmb3kNCoBUZdah1AgBBD4zMk898j5Qw8ahT1w5cCMYp5Y3\"]}},\"version\":1}",
+  "metadata": "",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\n\nimport \"./klaytn/contract/token/KIP7/KIP7Token.sol\";\nimport \"./klaytn/contract/access/Roles.sol\";\n\ncontract SpenderRole {\n  using Roles for Roles.Role;\n\n  event SpenderAdded(address indexed account);\n  event SpenderRemoved(address indexed account);\n\n  Roles.Role private spenders;\n\n  constructor() internal {\n    _addSpender(msg.sender);\n  }\n\n  modifier onlySpender() {\n    require(isSpender(msg.sender));\n    _;\n  }\n\n  function isSpender(address account) public view returns (bool) {\n    return spenders.has(account);\n  }\n\n  function addSpender(address account) public onlySpender {\n    _addSpender(account);\n  }\n\n  function renounceSpender() public {\n    _removeSpender(msg.sender);\n  }\n\n  function _addSpender(address account) internal {\n    spenders.add(account);\n    emit SpenderAdded(account);\n  }\n\n  function _removeSpender(address account) internal {\n    spenders.remove(account);\n    emit SpenderRemoved(account);\n  }\n}\n\ncontract KIP7Spendable is KIP7, SpenderRole {\n  /**\n   * @dev Function to mint tokens\n   * @param from The address that will spend the tokens\n   * @param value The amount of tokens to spend\n   * @return A boolean that indicates if the operation was successful\n   */\n  function spend(address from, uint256 value) public onlySpender returns (bool) {\n    _burn(from, value);\n    return true;\n  }\n  function transCAtoEOA(address from, address to, uint256 amount) public {\n      _approve(from, address(this), amount);\n      _transfer(from, to, amount);\n  }\n  \n//   product contract\n  function sendTokenBuyingSneakers(address from, address to, uint256 amount) public {\n    //   _approve(msg.sender, address(this), amount);\n      _transfer(from, to, amount);\n  }\n  \n  function SendTokenTradeEnd(address from, address to, uint256 amount) public {\n      _approve(from, to, amount);\n      _transfer(from, to, amount);\n      _approve(from, to, 0);\n  }\n  \n  \n}\n\n\ncontract Token7 is KIP7Token, KIP7Spendable {\n    constructor(string memory name, string memory symbol, uint8 decimals, uint256 initialSupply) KIP7Token(name, symbol, decimals, initialSupply) public {\n        \n    }\n    \n    // function getToken(uint _amount) public {\n    //     transfer(address(this), _amount);\n    // }\n    \n    // function sendToken(address _receive, uint _amount) public {\n    //     _approve(address(this), msg.sender, _amount);\n    //     transferFrom(address(this), _receive, _amount);\n    // }\n    // function approveCA(address spender, uint256 value) public returns (bool) {\n    //     _approve(address(this), spender, value);\n    //     return true;\n    // }\n}",
-  "sourcePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/Token7.sol",
+  "sourcePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/Token7.sol",
   "ast": {
-    "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/Token7.sol",
+    "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/Token7.sol",
     "exportedSymbols": {
       "KIP7Spendable": [
         622
@@ -114,7 +109,7 @@
         "src": "0:23:2"
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/KIP7Token.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/KIP7Token.sol",
         "file": "./klaytn/contract/token/KIP7/KIP7Token.sol",
         "id": 429,
         "nodeType": "ImportDirective",
@@ -125,7 +120,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol",
         "file": "./klaytn/contract/access/Roles.sol",
         "id": 430,
         "nodeType": "ImportDirective",
@@ -1622,7 +1617,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3999,
+                            "referencedDeclaration": 3998,
                             "src": "1452:4:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_KIP7Spendable_$622",
@@ -2804,7 +2799,7 @@
     "src": "0:2594:2"
   },
   "legacyAST": {
-    "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/Token7.sol",
+    "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/Token7.sol",
     "exportedSymbols": {
       "KIP7Spendable": [
         622
@@ -2831,7 +2826,7 @@
         "src": "0:23:2"
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/KIP7Token.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/token/KIP7/KIP7Token.sol",
         "file": "./klaytn/contract/token/KIP7/KIP7Token.sol",
         "id": 429,
         "nodeType": "ImportDirective",
@@ -2842,7 +2837,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/mac/dev/project/SneakerBlock/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol",
+        "absolutePath": "/Users/mac/dev/project/ShoeBox-project/front-end/sneakerblock-vue/contracts/klaytn/contract/access/Roles.sol",
         "file": "./klaytn/contract/access/Roles.sol",
         "id": 430,
         "nodeType": "ImportDirective",
@@ -4339,7 +4334,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3999,
+                            "referencedDeclaration": 3998,
                             "src": "1452:4:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_KIP7Spendable_$622",
@@ -5522,11 +5517,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+    "version": "0.5.1+commit.c8a2cb62.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-06-26T03:27:15.737Z",
+  "updatedAt": "2020-07-02T16:49:10.433Z",
   "devdoc": {
     "methods": {}
   },

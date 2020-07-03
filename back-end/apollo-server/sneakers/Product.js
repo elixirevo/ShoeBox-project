@@ -5,7 +5,6 @@ const Schema = mongoose.Schema
 const ProductSchema = new Schema({
   name: {
     type: String,
-    required: true
   },
   price: {
     type: String
@@ -15,25 +14,32 @@ const ProductSchema = new Schema({
   },
   seller: {
     type: String,
-    required: true
+  },
+  brand: {
+    type: String
+  },
+  size: {
+    type: String
+  },
+  serial: {
+    type: String
   },
   description: {
     type: String,
-    required: true
-  },
-  color: {
-    type: String
-  },
-  date: {
-    type: String
   },
   validator: {
     type: String
   },
-  manufac: {
-    type: String
+  tokenID: {
+    type: Number
   },
-  lovely: {
+  likeNum: {
+    type: Number
+  },
+  isSell: {
+    type: Boolean
+  },
+  buyer: {
     type: String
   }
 })
