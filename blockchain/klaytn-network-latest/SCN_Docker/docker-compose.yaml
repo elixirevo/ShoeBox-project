@@ -1,0 +1,96 @@
+version: '3'
+
+networks:
+  service-chain:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.168.7.0/21
+
+services:
+  main-node:
+    build:
+      image: blockpromisedev/service-chain:0.1
+    tty: true
+    ports: 
+       - "30000:30000"
+    volumes:
+       - ./data:/var/src
+    command: sh -c "cd /usr/local/src/kscn-linux-amd64/bin && ./kscnd start && tail -f /dev/null"
+    image: klaytn/klaytn:latest
+    tty: true
+    ports: 
+      - "30000:30000"
+    volumes:
+      - ./data:/var
+    #command: /bin/sh
+    container_name: main-service-chain
+    networks:
+      service-chain:
+        ipv4_address: 172.168.7.10
+
+  secound-node:
+    image: blockpromisedev/service-chain:0.2
+    tty: true
+    ports: 
+      - "30001:30000" 
+    volumes:
+      - ./data:/var/src
+    command: sh -c "cd /usr/local/src/kscn-linux-amd64/bin && ./kscnd start && tail -f /dev/null"
+    image: klaytn/klaytn:latest
+    tty: true
+    ports: 
+      - "30001:30000"
+    depends_on:
+      - main-node
+    volumes:
+      - ./data:/var
+    #command: /bin/sh
+    container_name: secound-service-chain
+    networks:
+      service-chain:
+        ipv4_address: 172.168.7.20
+
+  third-node:
+    image: blockpromisedev/service-chain:0.3
+    tty: true
+    ports: 
+      - "30002:30000"
+    volumes:
+      - ./data:/var/src
+    command: sh -c "cd /usr/local/src/kscn-linux-amd64/bin && ./kscnd start && tail -f /dev/null"
+    image: klaytn/klaytn:latest
+    tty: true
+    ports: 
+      - "30002:30000"
+    depends_on:
+      - secound-node
+    volumes:
+      - ./data:/var
+    #command: /bin/sh
+    container_name: third-service-chain
+    networks:
+      service-chain:
+        ipv4_address: 172.168.7.30
+
+  forth-node:
+    image: blockpromisedev/service-chain:0.4
+    tty: true
+    ports: 
+      - "30003:30000"
+    volumes:
+      - ./data:/var/src
+    command: sh -c "cd /usr/local/src/kscn-linux-amd64/bin && ./kscnd start && tail -f /dev/null"
+    image: klaytn/klaytn:latest
+    tty: true
+    ports: 
+      - "30003:30000"
+    depends_on:
+      - third-node
+    volumes:
+      - ./data:/var
+    #command: /bin/sh
+    container_name: forth-service-chain
+    networks:
+      service-chain:
+        ipv4_address: 172.168.7.40

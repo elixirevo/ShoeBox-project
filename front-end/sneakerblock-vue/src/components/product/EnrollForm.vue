@@ -68,6 +68,7 @@
             <v-col cols="12">
               <v-row justify="end" class="mx-1">
                 <v-btn color="success" @click="enrollItem">등록</v-btn>
+                <v-btn color="success" @click="makeToken">더미</v-btn>
               </v-row>
             </v-col>
           </v-row>
@@ -79,6 +80,11 @@
 
 <script>
 import ENROLL from '@/graphql/productEnroll.gql'
+import { caver } from '@/klaytn/caver.js'
+import abi from '@/klaytn/deployedABIToken17.json'
+const kip17Instance = new caver.klay.KIP17('0x0F3c4462f1c977dF3991e85b7913daF2A130c614')
+const kip17Contract = new caver.klay.Contract(abi, '0x0F3c4462f1c977dF3991e85b7913daF2A130c614')
+
 export default {
   data() {
     return {
@@ -95,9 +101,24 @@ export default {
       validatorVal: null,
       itemExplainVal: null,
       itemImg: '1.jpg',
+      myTokenNum: 0,
     }
   },
+  created() {
+    this.getMyTokenNum()
+    this.makeToken
+  },
   methods: {
+    async makeToken() {
+      const aaa = await kip17Contract.methods.enrollSneakers().call()
+      console.log(aaa)
+    },
+    async getMyTokenNum() {
+      kip17Instance.totalSupply().then(res => {
+        this.myTokenNum = res.c[0]
+        console.log(this.myTokenNum)
+      })
+    },
     enrollItem() {
       console.log(typeof true)
       this.$apollo
@@ -113,7 +134,7 @@ export default {
             serial: this.originNumVal,
             description: this.itemExplainVal,
             validator: this.validatorVal,
-            tokenID: parseInt(0, 10),
+            tokenID: parseInt(this.myTokenNum, 10),
             likeNum: parseInt(0, 10),
             isSell: true,
           },
