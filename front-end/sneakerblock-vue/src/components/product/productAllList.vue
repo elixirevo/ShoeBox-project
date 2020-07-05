@@ -13,7 +13,7 @@
           </v-container>
           <h4 class="text-center mt-3">{{ product.name }}</h4>
           <h3 class="text-center mb-3">₩ {{ product.price }}</h3>
-          <h3 class="text-center mb-3">{{ product.tokenID }}</h3>
+          <!-- <h3 class="text-center mb-3">{{ product.tokenID }}</h3> -->
         </v-card>
       </v-row>
     </v-col>
