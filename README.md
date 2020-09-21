@@ -1,4 +1,7 @@
 # Shoe Box Project
+# 이 프로젝트는 [여기](https://github.com/elixirevo/jeju_hackathon_BlockPromise)에서 계속됩니다.
+
+
 
 ```sh
 git clone https://github.com/elixirevo/ShoeBox-project.git
